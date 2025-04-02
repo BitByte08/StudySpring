@@ -1,5 +1,7 @@
 package kr.co.shortenUrlService.application;
 
+import kr.co.shortenUrlService.domain.ShortenUrl;
+import kr.co.shortenUrlService.domain.ShortenUrlRepository;
 import kr.co.shortenUrlService.presentation.ShortenUrlCreateRequestDTO;
 import kr.co.shortenUrlService.presentation.ShortenUrlCreateResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +26,15 @@ public class SimpleShortenUrlService{
       ShortenUrlCreateRequestDTO shortenUrlCreateRequestDTO
   ){
     //해야하는 일
-    //1. 원본 URL과 단축 URL 키 생성
-
-    //2. 원본 URL과 단축 URL 키를 통해 ShortenUrl 객체 생성
+    //1. 원본 URL 과 단축 URL 키 생성
+    String originalUrl = shortenUrlCreateRequestDTO.getOriginalUrl();
+    String shortenUrlKey = ShortenUrl.generateShortenUrlKey();
+    //2. 원본 URL 과 단축 URL 키를 통해 ShortenUrl 객체 생성
+    ShortenUrl shortenUrl = new ShortenUrl(originalUrl, shortenUrlKey);
 
     //3. 생성된 ShortenUrl 객체를 레포지토리를 통해 저장
-
-    //4. ShortenUrl 을 ShortenUrlCreateResponseDTO로 변환하여서 반환
+    shortenUrlRepository.saveShortenUrl(shortenUrl);
+    //4. ShortenUrl 을 ShortenUrlCreateResponseDTO 로 변환하여서 반환
 
     return null;
   }
