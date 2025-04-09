@@ -7,7 +7,7 @@ import org.hibernate.validator.constraints.URL;
 public class ShortenUrlCreateRequestDTO {
 
     @NotNull
-    @URL(regexp = "/^(https?|ftp):\\/\\/(-\\.)?([^\\s\\/?\\.#-]+\\.?)+(\\/[^\\s]*)?$/i;")
+    @URL
     private String originalUrl;
 
     public String getOriginalUrl() {

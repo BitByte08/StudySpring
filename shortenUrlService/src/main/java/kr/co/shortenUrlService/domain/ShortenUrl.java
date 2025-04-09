@@ -8,12 +8,12 @@ import java.util.Random;
 public class ShortenUrl {
     private String originalUrl;
     private String shortenUrlKey;
-    private Long redirectCount;
+    private Integer redirectCount;
 
     public ShortenUrl(String originalUrl, String shortenUrlKey) {
         this.originalUrl = originalUrl;
         this.shortenUrlKey = shortenUrlKey;
-        this.redirectCount = 0L;
+        this.redirectCount = 0;
     }
 
     public static String generateShortenUrlKey(){
@@ -33,5 +33,13 @@ public class ShortenUrl {
 
   public String getOriginalUrl() {
     return originalUrl;
+  }
+
+  public void increaseRedirectCount() {
+      this.redirectCount++;
+  }
+
+  public Integer getRedirectCount() {
+      return redirectCount;
   }
 }
