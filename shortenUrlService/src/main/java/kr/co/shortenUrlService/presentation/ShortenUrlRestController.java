@@ -41,6 +41,6 @@ public class ShortenUrlRestController {
     public ShortenUrlInformationDTO getShortenUrlInformation(
         @PathVariable String shortenUrlKey
     ){
-        return null;
+      return simpleShortenUrlService.getShortenUrlInformationByShortenUrlKey(shortenUrlKey);
     }
 }

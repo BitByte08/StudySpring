@@ -26,4 +26,12 @@ public class ShortenUrl {
         }
         return shortenUrlKey.toString();
     }
+
+  public String getShortenUrlKey() {
+      return shortenUrlKey;
+  }
+
+  public String getOriginalUrl() {
+    return originalUrl;
+  }
 }
